@@ -1,0 +1,1 @@
+python3 ./gen_sin_wave.py --store_hex
