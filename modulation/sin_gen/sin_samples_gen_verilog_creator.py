@@ -32,9 +32,9 @@ class GenVerilog:
         case_statements = ""
         
         for i, sample in enumerate(self.samples):
-            case_statements += f"{' ' * case_statement_space_count}{i}:{' ' * (i_max_len - len(str(i)) + 1)}out = {sample}\n"
+            case_statements += f"{' ' * case_statement_space_count}{i}:{' ' * (i_max_len - len(str(i)) + 1)}out = {sample};\n"
         
-        case_statements += f"{' ' * case_statement_space_count}default:{' ' * (i_max_len - len('default') + 1)}out = 0\n"
+        case_statements += f"{' ' * case_statement_space_count}default:{' ' * (i_max_len - len('default') + 1)}out = 0;\n"
         
         return case_statements.lstrip()
         
@@ -49,7 +49,7 @@ class GenVerilog:
         number_of_cases = min(number_of_cases, len(self.samples))
 
         for i in random.sample(range(len(self.samples)), number_of_cases):
-            cases += f"{' ' * case_space_count}#{start_time} i = {i}\n"
+            cases += f"{' ' * case_space_count}#{start_time} i = {i};\n"
             start_time += time_step
             
         return cases.lstrip()
